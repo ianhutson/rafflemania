@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_name: MyString
+  product_description: MyString
+  product_image: MyString
+  number_of_ticket_slots: 1
+
+two:
+  product_name: MyString
+  product_description: MyString
+  product_image: MyString
+  number_of_ticket_slots: 1

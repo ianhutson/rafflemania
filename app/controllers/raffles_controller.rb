@@ -1,0 +1,2 @@
+class RafflesController < ApplicationController
+end
