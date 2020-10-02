@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :raffles
-  resources :tickets
+  resources :raffles, :path_names => {:edit => 'claim' }
+  resources :tickets, :path_names => {:edit => 'get' }
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   root 'welcome#home'
+  get '/sign_in', to: 'sessions#new'
+  post '/sign_in', to: 'sessions#create'
+  delete '/sign_out', to: 'sessions#destroy'
 end

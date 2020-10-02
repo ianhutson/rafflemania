@@ -2,7 +2,7 @@ class Ticket < ApplicationRecord
     belongs_to :user
     belongs_to :raffle
 
-    @@ticket_cost = {bronze: 5, silver: 10, gold: 15} 
+    @@ticket_cost = {bronze: 1, silver: 3, gold: 5} 
    
     def ticket_cost 
         @@ticket_cost[self.tier]
@@ -21,6 +21,6 @@ class Ticket < ApplicationRecord
     private
     
     def enough_tickets?
-        raffle.tickets < user.tickets
+        raffle.number_of_ticket_slots < user.tickets
     end
 end

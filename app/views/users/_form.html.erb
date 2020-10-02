@@ -1,0 +1,24 @@
+<%= form_for(@user) do |f|%>
+ <p>
+   <%= f.label :username %>
+   <%= f.text_field :username %>
+ </p>
+  <p>
+   <%= f.label :email %>
+   <%= f.text_field :email %>
+ </p>
+  <p>
+   <%= f.label :shipping_name %>
+   <%= f.text_field :shipping_name %>
+ </p>
+ <p>
+   <%= f.label :shipping_address %>
+   <%= f.text_field :shipping_address %>
+ </p>
+ <p>
+   <%= f.label :shipping_city_state_zip %>
+   <%= f.text_field :shipping_city_state_zip %>
+ </p>
+
+   <%= f.submit %>
+<% end %>

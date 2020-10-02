@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_232723) do
+ActiveRecord::Schema.define(version: 2020_10_01_003934) do
 
   create_table "raffles", force: :cascade do |t|
     t.string "product_name"
@@ -21,14 +21,9 @@ ActiveRecord::Schema.define(version: 2020_09_30_232723) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "product_id"
+    t.integer "raffle_id"
     t.string "tier"
     t.integer "cost"
     t.datetime "created_at", precision: 6, null: false
@@ -36,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_232723) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.string "shipping_address"
     t.string "shipping_city_state_zip"
@@ -45,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_232723) do
     t.integer "tickets"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
 end

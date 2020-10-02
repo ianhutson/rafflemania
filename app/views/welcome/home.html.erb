@@ -1,10 +1,11 @@
 <p>Welcome to RaffleMania!</p>
 
 <% if session[:user_id] %>
-  <p>Welcome <%= @user.name -%>!</p>
+  <% controller.redirect_to raffles_path %>
  
 <% else %>
-  <p><%= link_to 'Log in with GitHub', '/auth/github'%></p>
-  <p><%= link_to 'Log in with email and password', '/users/sign_in'%></p>
-  <p><%= link_to 'Sign up', '/users/sign_up'%></p>
+  <%= link_to('Log in with Amazon!', '/auth/amazon') %>
+  <p><%= link_to 'Log in', '/users/sign_in'%></p>
+  <p><%= link_to 'Sign Up', '/users/sign_up'%></p>
+  <p><%= link_to 'Show Raffles', '/raffles'%></p>
 <% end %>

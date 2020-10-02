@@ -1,19 +1,19 @@
 class RafflesController < ApplicationController
     def index
-        @raffles = raffle.all
+        @raffles = Raffle.all
     end
     
     def new
-        @raffle = raffle.new
+        @raffle = Raffle.new
         # @ticket = @raffle.tickets.build(user_id: current_user.id)
      end
     
     def show
-        @raffle = raffle.find_by(id: params[:id])
+        @raffle = Raffle.find_by(id: params[:id])
     end
     
     def create
-        @raffle = raffle.new(raffle_params)
+        @raffle = Raffle.new(raffle_params)
         if @raffle.save
           redirect_to raffle_path(@raffle)
         else
@@ -22,12 +22,12 @@ class RafflesController < ApplicationController
     end
     
     def edit
-        @raffle = raffle.find_by(id: params[:id])
+        @raffle = Raffle.find_by(id: params[:id])
         # @ticket = @raffle.tickets.build(user_id: current_user.id)
     end
     
     def update
-        @raffle = raffle.find_by(id: params[:id])
+        @raffle = Raffle.find_by(id: params[:id])
         if @raffle.update(raffle_params)
           redirect_to raffle_path(@raffle)
         else
