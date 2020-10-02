@@ -91,6 +91,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    email_validator (2.0.1)
+      activemodel
     erubi (1.9.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
@@ -250,6 +252,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
+  email_validator
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth

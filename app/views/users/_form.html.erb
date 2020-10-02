@@ -1,24 +1,30 @@
+<p id="notice"><%= notice %></p>
 <%= form_for(@user) do |f|%>
  <p>
-   <%= f.label :username %>
+   <%= f.label :username, "Username: (this is how you will appear to other users)" %>
+   <br>
    <%= f.text_field :username %>
  </p>
   <p>
-   <%= f.label :email %>
+   <%= f.label :email, "Email:" %>
+   <br>
    <%= f.text_field :email %>
  </p>
   <p>
-   <%= f.label :shipping_name %>
+   <%= f.label :shipping_name, "Shipping Name:" %>
+   <br>
    <%= f.text_field :shipping_name %>
  </p>
  <p>
-   <%= f.label :shipping_address %>
+   <%= f.label :shipping_address, "Shipping Address:" %>
+   <br>
    <%= f.text_field :shipping_address %>
  </p>
  <p>
-   <%= f.label :shipping_city_state_zip %>
+   <%= f.label :shipping_city_state_zip, "City, State & ZIP (ex. Atlanta, GA 30301)" %>
+   <br>
    <%= f.text_field :shipping_city_state_zip %>
  </p>
-
-   <%= f.submit %>
+  
+   <%= f.submit "Confirm" %>
 <% end %>

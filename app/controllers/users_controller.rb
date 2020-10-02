@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     # before_action :require_login, only: [:show]
- 
+    validates_uniqueness :username
+    validates :email,
+    format: { with: /^(.+)@(.+)$/, message: "Email invalid"  },
+              uniqueness: { case_sensitive: false },
+              length: { minimum: 4, maximum: 254 } 
     def new
       @user = User.new
     end
@@ -9,11 +13,9 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
        if @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
-        # redirect_to root_path
+        redirect_to edit_user_path(@user), notice: 'Because this a new account, we will need a bit more info before you can start participating in raffles.'
       else
         render :new
-        # redirect_to new_user_path
       end
     end
   
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
     end
 
     def update 
+      @user = User.find_by(id: session[:user_id])
       @user.update(user_params)
       if @user.valid?
         redirect_to user_path(@user)

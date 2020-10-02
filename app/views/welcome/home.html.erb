@@ -5,7 +5,27 @@
  
 <% else %>
   <%= link_to('Log in with Amazon!', '/auth/amazon') %>
-  <p><%= link_to 'Log in', '/users/sign_in'%></p>
-  <p><%= link_to 'Sign Up', '/users/sign_up'%></p>
-  <p><%= link_to 'Show Raffles', '/raffles'%></p>
+   <br> <br>
+  <%= form_for(@user) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+       <br>
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <br><br>
 <% end %>
+  <%= form_for(@user) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <br>
+      <%= f.label :password_confirm %>
+      <%= f.password_field :password_confirm %>
+      <br>
+      <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
+  <p><%= link_to 'Show Raffles', '/raffles'%></p>
+<% end %><% end %>
