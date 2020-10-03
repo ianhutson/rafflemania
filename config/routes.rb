@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :raffles, :path_names => {:edit => 'claim' }
   resources :tickets, :path_names => {:edit => 'get' }
   resources :users

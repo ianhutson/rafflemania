@@ -7,18 +7,11 @@ class UsersController < ApplicationController
     end
   
     def create
-       if @user = User.find_by(email: user_params[:email]) 
-         if @user.password_digest == user_params[:password_digest]
-          session[:user_id] = @user.id
-          redirect_to root_url
-         else redirect_to root_url, notice: 'Invalid password.'
-         end
-       elsif @user = User.new(username: params[:email], email: params[:email], password_digest: params[:password_digest], password_digest_confirm: params[:password_digest_confirm])
-        if @user.save
+      if @user = User.find_by(email: params[:email])
+        redirect_to new_user_path, notice: "Email in use."
+      else @user =  User.create(username: params[:email], email: params[:email], password_digest: params[:password_digest])
         session[:user_id] = @user.id
         redirect_to edit_user_path(@user), notice: 'Because this a new account, we will need a bit more info before you can start participating in raffles.'
-        else render :new
-        end
       end
     end
   
@@ -28,12 +21,11 @@ class UsersController < ApplicationController
     end
 
     def edit
-     @user = User.find_by(id: session[:user_id])
+     @user = current_user
     end
 
     def update 
-      puts user_params
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       if @user.update(user_params)
         @user.save
         redirect_to root_url
