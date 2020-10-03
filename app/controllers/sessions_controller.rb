@@ -6,9 +6,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    session[:user_id] = User.find_or_create_by(email: auth["info"]['email'], username: auth["info"]["email"]).id 
-    puts session[:user_id]
+    if auth = nil
+      @user = User.find_or_create_by(email: params[:email], password_digest: params[:password_digest])
+      session[:user_id] = @user.id
+    else
+    session[:user_id] = User.find_or_create_by(email: request.env['omniauth.auth']["info"]['email'], password_digest: random_password, username: params[:email],).id 
     redirect_to root_url
+    end
   end
 
   def destroy
@@ -17,8 +21,7 @@ class SessionsController < ApplicationController
   end
 
   private
- 
-  def auth
-    request.env['omniauth.auth']
-  end
+ def random_password
+  (0...8).map{(65 + rand(26)).chr}.join
+ end
 end

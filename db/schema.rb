@@ -33,8 +33,11 @@ ActiveRecord::Schema.define(version: 2020_10_01_003934) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "password_digest_confirm"
     t.string "shipping_address"
-    t.string "shipping_city_state_zip"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
     t.string "shipping_name"
     t.string "email"
     t.integer "tickets"

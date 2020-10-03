@@ -1,21 +1,24 @@
 class UsersController < ApplicationController
-    # before_action :require_login, only: [:show]
-    validates_uniqueness :username
-    validates :email,
-    format: { with: /^(.+)@(.+)$/, message: "Email invalid"  },
-              uniqueness: { case_sensitive: false },
-              length: { minimum: 4, maximum: 254 } 
+    def index
+    end
+
     def new
-      @user = User.new
+        @user = User.new
     end
   
-     def create
-      @user = User.new(user_params)
-       if @user.save
+    def create
+       if @user = User.find_by(email: user_params[:email]) 
+         if @user.password_digest == user_params[:password_digest]
+          session[:user_id] = @user.id
+          redirect_to root_url
+         else redirect_to root_url, notice: 'Invalid password.'
+         end
+       elsif @user = User.new(username: params[:email], email: params[:email], password_digest: params[:password_digest], password_digest_confirm: params[:password_digest_confirm])
+        if @user.save
         session[:user_id] = @user.id
         redirect_to edit_user_path(@user), notice: 'Because this a new account, we will need a bit more info before you can start participating in raffles.'
-      else
-        render :new
+        else render :new
+        end
       end
     end
   
@@ -25,22 +28,23 @@ class UsersController < ApplicationController
     end
 
     def edit
-      @user = User.find_by(id: session[:user_id])
+     @user = User.find_by(id: session[:user_id])
     end
 
     def update 
+      puts user_params
       @user = User.find_by(id: session[:user_id])
-      @user.update(user_params)
-      if @user.valid?
-        redirect_to user_path(@user)
+      if @user.update(user_params)
+        @user.save
+        redirect_to root_url
       else
-        render :edit
+        redirect_to edit_user_path(@user)
       end
     end
-
+    
      private
   
      def user_params
-      params.require(:user).permit(:username, :password_digest, :tickets, :shipping_address, :shipping_city_state_zip, :shipping_name, :email, :id)
+      params.require(:user).permit(:username, :password_digest, :password_digest_confirm, :tickets, :shipping_address, :city, :state, :zip, :shipping_name, :email, :id)
     end
   end

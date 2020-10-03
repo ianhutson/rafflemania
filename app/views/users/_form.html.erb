@@ -5,11 +5,7 @@
    <br>
    <%= f.text_field :username %>
  </p>
-  <p>
-   <%= f.label :email, "Email:" %>
-   <br>
-   <%= f.text_field :email %>
- </p>
+ 
   <p>
    <%= f.label :shipping_name, "Shipping Name:" %>
    <br>
@@ -21,10 +17,34 @@
    <%= f.text_field :shipping_address %>
  </p>
  <p>
-   <%= f.label :shipping_city_state_zip, "City, State & ZIP (ex. Atlanta, GA 30301)" %>
+   <%= f.label :city, "City:" %>
    <br>
-   <%= f.text_field :shipping_city_state_zip %>
+   <%= f.text_field :city %>
  </p>
-  
-   <%= f.submit "Confirm" %>
+   <p>
+   <%= f.label :state, "State:" %>
+   <br>
+   <%= f.text_field :state %>
+ </p>
+  <p>
+   <%= f.label :zip, "ZIP Code:" %>
+   <br>
+   <%= f.text_field :zip %>
+ </p>
+   <%= f.submit "Change Profile" %>
 <% end %>
+
+<%= form_for(@user) do |f|%>
+<p>
+   <%= f.label :password_digest, "New Password:" %>
+   <br>
+   <%= f.password_field :password_digest %>
+</p>
+<p>
+   <%= f.label :password_digest_confirm, "Confirm New Password:" %>
+   <br>
+   <%= f.password_field :password_digest_confirm %>
+</p>
+ <%= f.submit "Change Password" %>
+<% end %>
+

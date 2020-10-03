@@ -1,31 +1,35 @@
 <p>Welcome to RaffleMania!</p>
-
+<p id="notice"><%= notice %></p>
 <% if session[:user_id] %>
   <% controller.redirect_to raffles_path %>
  
 <% else %>
-  <%= link_to('Log in with Amazon!', '/auth/amazon') %>
+  <a href="auth/amazon">
+    <img border="0" alt="Login with Amazon"
+        src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+        width="156" height="32" />
+ </a>
    <br> <br>
   <%= form_for(@user) do |f| %>
-      <%= f.label :email %>
+      <%= f.label :email, "Email:" %> <br>
       <%= f.text_field :email %>
       <br>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-       <br>
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <%= f.label :password_digest, "Password:" %> <br>
+      <%= f.password_field :password_digest %>
+       <br> <br>
+      <%= f.submit "Sign In", class: "btn btn-large btn-primary" %>
       <br><br>
 <% end %>
   <%= form_for(@user) do |f| %>
-      <%= f.label :email %>
+      <%= f.label :email, "Email:" %> <br>
       <%= f.text_field :email %>
       <br>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.label :password_digest, "Password:" %><br>
+      <%= f.password_field :password_digest %>
       <br>
-      <%= f.label :password_confirm %>
-      <%= f.password_field :password_confirm %>
-      <br>
-      <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
+      <%= f.label :password_digest_confirm, "Password Confirm:" %><br>
+      <%= f.password_field :password_digest_confirm %>
+      <br><br>
+      <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %><br>
   <p><%= link_to 'Show Raffles', '/raffles'%></p>
 <% end %><% end %>

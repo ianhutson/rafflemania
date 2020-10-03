@@ -3,8 +3,11 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :username
       t.string :password_digest
+      t.string :password_digest_confirm
       t.string :shipping_address
-      t.string :shipping_city_state_zip
+      t.string :city
+      t.string :state
+      t.string :zip
       t.string :shipping_name
       t.string :email
       t.integer :tickets

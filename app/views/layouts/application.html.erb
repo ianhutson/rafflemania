@@ -25,6 +25,12 @@
         <li class="nav-item">
           <%= link_to "Sign Out", '/sign_out', :method => :delete %>
         </li>
+        <li class="profile_item">
+          <%= current_user.username%> 
+        </li>
+        <li class="profile_item">
+          Tickets: <%=current_user.tickets.count %>
+        </li>
       </ul>
     </div>
     <%end%>

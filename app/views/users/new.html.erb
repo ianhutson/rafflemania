@@ -11,16 +11,19 @@
 <% end %>
 
    <div>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+   <%= f.label :email, "Email:" %><br>
+    <%= f.text_field :email %><br>
+    
+    <%= f.label :password_digest, "Password:" %> <br>
+    <%= f.text_field :password_digest %> <br>
 
-     <%= f.label :password %> <br>
-    <%= f.text_field :password %> <br>
+    <%= f.label :password_digest_confirm, "Password Confirm:" %> <br>
+    <%= f.text_field :password_digest_confirm %> <br>
   </div>
 
 
    <div>
     <br>
-    <%= f.submit %>
+    <%= f.submit "Confirm" %>
   </div>
 <% end %>
