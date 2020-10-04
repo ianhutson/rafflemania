@@ -21,7 +21,7 @@
           <%= link_to "Edit Profile", edit_registration_path(current_user) %>
         </li>
          <li class="nav-item ">
-          <%= link_to "Get Tickets", new_ticket_path(current_user) %>
+          <%= link_to "Get Tickets", new_ticket_path %>
         </li>
         <li class="nav-item">
           <%= link_to "Sign Out",  destroy_user_session_path, method: :delete %>
@@ -30,7 +30,7 @@
           <%= current_user.username%> 
         </li>
         <li class="profile_item">
-          Tickets: Gold - <%=current_user.tickets.where(:tier => 'gold').count %> | Silver - <%=current_user.tickets.where(:tier => 'silver').count %> | Bronze - <%=current_user.tickets.where(:tier => 'bronze').count %>
+          Tickets: Gold - <%=current_user.tickets.where(:tier => 'gold', :used => false).count %> | Silver - <%=current_user.tickets.where(:tier => 'silver', :used => false).count %> | Bronze - <%=current_user.tickets.where(:tier => 'bronze', :used => false).count %>
         </li>
       </ul>
     </div>

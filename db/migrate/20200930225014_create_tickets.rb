@@ -5,7 +5,7 @@ class CreateTickets < ActiveRecord::Migration[6.0]
       t.integer :raffle_id
       t.text :tier
       t.integer :cost
-
+      t.boolean :used
       t.timestamps
     end
   end

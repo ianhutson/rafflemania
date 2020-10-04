@@ -5,7 +5,8 @@ class CreateRaffles < ActiveRecord::Migration[6.0]
       t.string :product_description
       t.string :product_image
       t.integer :number_of_ticket_slots
-
+      t.string :category
+      t.datetime :raffle_time
       t.timestamps
     end
   end

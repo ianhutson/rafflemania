@@ -1,11 +1,11 @@
 class RafflesController < ApplicationController
+
     def index
-        @raffles = Raffle.all
+      @raffles = Raffle.filter(params[:filter])
     end
-    
+
     def new
         @raffle = Raffle.new
-        # @ticket = @raffle.tickets.build(user_id: current_user.id)
      end
     
     def show
@@ -23,21 +23,27 @@ class RafflesController < ApplicationController
     
     def edit
         @raffle = Raffle.find_by(id: params[:id])
-        # @ticket = @raffle.tickets.build(user_id: current_user.id)
     end
     
     def update
         @raffle = Raffle.find_by(id: params[:id])
-        if @raffle.update(raffle_params)
-          redirect_to raffle_path(@raffle)
+        if params[:raffle][:gold].to_i + params[:raffle][:silver].to_i + params[:raffle][:bronze].to_i < Raffle.find_by(id: params[:id]).number_of_ticket_slots
+          params[:raffle][:gold].to_i*3.times {current_user.tickets.where(tier: 'gold', used: false).update(:used => true, :raffle_id => @raffle.id)}
+          params[:raffle][:silver].to_i*2.times {current_user.tickets.where(tier: 'silver', used: false).update(:used => true, :raffle_id => @raffle.id)}
+          params[:raffle][:bronze].to_i.times {current_user.tickets.where(tier: 'bronze', used: false).update(:used => true, :raffle_id => @raffle.id)}
+          redirect_to edit_raffle_path(@raffle)
         else
-          render :new
+          render :edit, notice: "There aren't enough spots left! Please use less tickets."
         end
     end
     
     private
     
     def raffle_params
-        params.require(:raffle).permit(:product_name, :product_description, :product_image, :number_of_ticket_slots)
+        params.require(:raffle).permit(:product_name, :product_description, :product_image, :number_of_ticket_slots, :filter)
+    end
+
+    def filtering_params(params)
+      params.slice(:category)
     end
 end
