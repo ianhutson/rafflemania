@@ -1,20 +1,11 @@
-<p><%=current_user.username%>'s Tickets:</p>
-<p></p>Gold: <%=current_user.tickets.where(:tier => 'gold').count%></p>
-<p>Silver: <%=current_user.tickets.where(:tier => 'silver').count%></p>
-<p>Bronze:<%=current_user.tickets.where(:tier => 'silver').count%></p> 
-<br>
 <p>Get Tickets:</p>
 
-<%= form_for(@ticket) do |f|%>
-<div class="field">
-         <%=f.label :tier, "Gold" %>: <br>
-         <%=f.number_field :tier%><br>
-         <%#=t.label :tier, "Silver" %>:<br>
-         <%#=t.number_field :tier['silver']%><br>
-         <%#=t.label :tier, "Bronze" %>:<br>
-         <%#=t.number_field :tier['bronze']%><br><br>
-      
-</div>
-
-    <%= f.submit "Get Tickets" %>
-<%end%>
+<%= form_for(@ticket) do |f| %>
+  <%=f.label :tier, "Gold" %>: <br>
+  <%=f.number_field :gold%><br>
+  <%=f.label :tier, "Silver" %>:<br>
+  <%=f.number_field :silver %><br>
+  <%=f.label :tier, "Bronze" %>:<br>
+  <%=f.number_field :bronze %> <br><br>
+  <%= f.submit "Get Tickets" %>
+<% end %>

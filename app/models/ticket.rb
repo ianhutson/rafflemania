@@ -1,7 +1,7 @@
 class Ticket < ApplicationRecord
     belongs_to :user
-    belongs_to :raffle
-
+    belongs_to :raffle, optional: true
+    attr_accessor :gold, :silver, :bronze
 
     @@ticket_cost = {bronze: 1, silver: 3, gold: 5} 
    
