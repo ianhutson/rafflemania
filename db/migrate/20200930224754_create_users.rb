@@ -9,7 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :state
       t.string :zip
       t.string :shipping_name
-      t.integer :tickets
 
       t.timestamps
     end

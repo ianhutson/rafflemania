@@ -2,8 +2,11 @@ class Ticket < ApplicationRecord
     belongs_to :user
     belongs_to :raffle
 
+
     @@ticket_cost = {bronze: 1, silver: 3, gold: 5} 
    
+
+
     def ticket_cost 
         @@ticket_cost[self.tier]
     end 

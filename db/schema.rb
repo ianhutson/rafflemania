@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_215443) do
   create_table "tickets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "raffle_id"
-    t.string "tier"
+    t.text "tier"
     t.integer "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2020_10_03_215443) do
     t.string "state"
     t.string "zip"
     t.string "shipping_name"
-    t.integer "tickets"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
