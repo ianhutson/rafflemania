@@ -7,6 +7,7 @@ class CreateRaffles < ActiveRecord::Migration[6.0]
       t.integer :number_of_ticket_slots
       t.string :category
       t.datetime :raffle_time
+      t.string :winner
       t.timestamps
     end
   end

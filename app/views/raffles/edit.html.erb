@@ -1,13 +1,16 @@
 <p><strong>Product</strong></p>
 <p><%= @raffle.product_name %></p>
 <br>
+<p> <% if @raffle.winner%>
+<b><%=@raffle.winner%> has won this raffle!</b>
+<%end%></p> <br>
 <p><img src="<%= @raffle.product_image%>"></p>
 <br>
 <p><strong>Product Description</strong></p>
 <p><%= @raffle.product_description %></p>
 <br>
 <p><strong>Spots Left</strong></p>
-<p><%= @raffle.tickets.count %> / <%= @raffle.number_of_ticket_slots %>
+<p><%= (@raffle.tickets.where(:tier => :gold).count.to_i*3) + (@raffle.tickets.where(:tier => :silver).count.to_i*2) + (@raffle.tickets.where(:tier => :bronze).count.to_i)%> / <%= @raffle.number_of_ticket_slots %>
 
 <p>Use Tickets:</p>
 <%= form_for(@raffle) do |f| %>
@@ -19,3 +22,9 @@
   <%=f.number_field :bronze %> <br><br>
   <%= f.submit "Use Tickets" %>
 <% end %>
+
+<p>Your Entries:</p>
+
+Gold: <%=current_user.tickets.where(tier: 'gold', raffle_id: @raffle.id).count%>
+Silver: <%=current_user.tickets.where(tier: 'silver', raffle_id: @raffle.id).count%>
+Bronze: <%=current_user.tickets.where(tier: 'bronze', raffle_id: @raffle.id).count%>

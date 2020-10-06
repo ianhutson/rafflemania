@@ -21,6 +21,7 @@ class Ticket < ApplicationRecord
         end
     end
 
+ 
     private
     
     def enough_tickets?

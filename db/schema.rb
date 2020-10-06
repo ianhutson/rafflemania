@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_215443) do
     t.integer "number_of_ticket_slots"
     t.string "category"
     t.datetime "raffle_time"
+    t.string "winner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

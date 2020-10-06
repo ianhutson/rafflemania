@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def index
+      @user = User.find_by(id: params[:id])
     end
 
     def new
@@ -17,15 +18,14 @@ class UsersController < ApplicationController
   
     def show
       @user = User.find_by(id: params[:id])
-      redirect_to root_url
     end
 
     def edit
-     @user = current_user
+      @user = User.find_by(id: params[:id])
     end
 
     def update 
-      @user = current_user
+      @user = User.find_by(id: params[:id])
       if @user.update(user_params)
         @user.save
         redirect_to root_url

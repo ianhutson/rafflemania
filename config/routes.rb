@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :raffles, :path_names => {:edit => 'enter' }
+  resources :raffles, except: [:show], :path_names => {:edit => 'enter' }
   resources :tickets, :path_names => {:edit => 'claim' }
   resources :users
 

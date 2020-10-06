@@ -18,7 +18,10 @@
           <%= link_to "Home", root_url %>
         </li>
         <li class="nav-item ">
-          <%= link_to "Edit Profile", edit_registration_path(current_user) %>
+          <%= link_to "Profile", edit_registration_path(current_user) %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to "History", user_path(current_user) %>
         </li>
          <li class="nav-item ">
           <%= link_to "Get Tickets", new_ticket_path %>

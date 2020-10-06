@@ -20,8 +20,11 @@
     <th colspan="3"></th>
   </thead>
   <tbody>
-    <% @raffles.each do |raffle| %>
+    <% @raffles.where(winner: nil).each do |raffle| %>
         <p><strong>Product</strong></p>
+        <p> <% if raffle.winner%>
+        <b><%=raffle.winner%> has won this raffle!</b>
+        <% end %>
         <p><%= raffle.product_name %></p>
         <br>
         <p><img src="<%= raffle.product_image%>"></p>
@@ -30,7 +33,7 @@
         <p><%= raffle.product_description %></p>
         <br>
         <p><strong>Spots Left</strong></p>
-        <p><%= raffle.tickets.count %> / <%= raffle.number_of_ticket_slots %>
+        <p><%= (raffle.tickets.where(:tier => :gold).count*3) + (raffle.tickets.where(:tier => :silver).count*2) + (raffle.tickets.where(:tier => :bronze).count) %> / <%= raffle.number_of_ticket_slots %>
         <%= link_to "Enter Raffle", edit_raffle_path(raffle) %></p>
     <% end %>
   </tbody>

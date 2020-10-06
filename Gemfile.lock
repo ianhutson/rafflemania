@@ -79,6 +79,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    chronic (0.10.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     devise (4.7.3)
@@ -91,8 +92,6 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    email_validator (2.0.1)
-      activemodel
     erubi (1.9.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
@@ -237,6 +236,8 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.0)
@@ -252,7 +253,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
-  email_validator
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth
@@ -269,6 +269,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  whenever
 
 RUBY VERSION
    ruby 2.6.1p33
