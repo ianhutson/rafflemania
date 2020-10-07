@@ -2,16 +2,14 @@
 
 <div class="title">Raffle History:</div><br>
 <% current_user.raffles.uniq.each do |raffle| %>
- <% if raffle.winner == @user.username%>
-        <p>WON</p>
+ <% if raffle.winner == current_user.username%>
+        <p style="color:green"><strong>WON</strong></p>
         <% else %>
-        <p>LOST</p>
+        <p style="color:red"><strong>LOST</strong></p>
             <% end %>
         <p><%= raffle.product_name %></p>
         <br>
         <p><img src="<%= raffle.product_image%>"></p>
         <br>
     <% end %> 
- <% if current_user.raffles.has_attribute?("winner") %>
-    <p>You haven't participated in any completed raffles!</p>  
-    <% end %> 
+

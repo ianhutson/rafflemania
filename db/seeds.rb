@@ -65,7 +65,7 @@
         product_description: 'Wicked Weed Baseball Cap', 
         product_image: 'https://images-na.ssl-images-amazon.com/images/I/815rTj4vT3L._AC_UX679_.jpg', 
         category: "Fashion", 
-        number_of_ticket_slots: '26')
+        number_of_ticket_slots: '25')
 
     Raffle.create(product_name: 'Charlotte NC Canvas Wall Art Print, 36"x12"x1.25"', 
         product_description: 'Let\'s move to Charlotte, NC', 

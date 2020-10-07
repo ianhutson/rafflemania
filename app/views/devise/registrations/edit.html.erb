@@ -10,7 +10,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 <p>
-   <%= f.label :username, "Username" %> <i>(this is how you will appear to other users)</i>
+   <%= f.label :username, "Username" %><br> <i>(this is how you will appear to other users)</i>
    <br>
    <%= f.text_field :username %>
  </p>
@@ -45,7 +45,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br>
+    <%= f.label :password %><br> <i>(leave blank if you don't want to change it)</i><br>
     <%= f.password_field :password, autocomplete: "new-password" %><br>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -57,8 +57,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br>
   </div>
 
+  <br><br>
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <br><i>**we need your current password to confirm your changes**</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 

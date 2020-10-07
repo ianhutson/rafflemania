@@ -74,11 +74,6 @@ body {
     font-weight: normal;
 }
 
-.button:hover {
-    background-color: #000000;
-    color: 242427;
-}
-
 .button1:hover {
     background-color: #000000;
     color: 242427;
@@ -139,8 +134,7 @@ div.container {
 
 div.container2 {
     background-color: #FFc913;
-    width: 50%;
-    max-width: 90%;
+    width: 30%;
     border: 5px solid black;
     padding: 10px;
     margin: auto;
