@@ -1,19 +1,15 @@
-   <%if !current_user%> 
-     <div class="navbar" id="">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Sign in", root_url %>
-        </li>
-      </ul>
-    </div>
-    <%end%>
 
-<h1>Current Raffles:</h1>
+
+<%= form_tag(raffles_path, method: :get) do %>
+<%= text_field :search, params[:search]%>
+<%= submit_tag ("Search"), class: 'button' %>
+<% end %>
 <%= form_tag(raffles_path, method: 'get') do %>
   <%= select_tag(:filter, options_for_select(Raffle.pluck(:category).uniq, params[:filter])) %>
-  <%= submit_tag ("Filter") %>
-<% end %>
+  <%= submit_tag ("Filter"), class: 'button' %> <button class="button" href="/raffles">Clear</button>
+<% end %></div>
 
+<div class="title">Current Raffles:</div>
 
  <table class="table">
   <thead>
@@ -21,6 +17,7 @@
   </thead>
   <tbody>
     <% @raffles.where(winner: nil).each do |raffle| %>
+    <div class="container">
         <p><strong>Product</strong></p>
         <p> <% if raffle.winner%>
         <b><%=raffle.winner%> has won this raffle!</b>
@@ -35,7 +32,8 @@
         <p><strong>Spots Left</strong></p>
         <p><%= (raffle.tickets.where(:tier => :gold).count*3) + (raffle.tickets.where(:tier => :silver).count*2) + (raffle.tickets.where(:tier => :bronze).count) %> / <%= raffle.number_of_ticket_slots %>
         <%= link_to "Enter Raffle", edit_raffle_path(raffle) %></p>
+        </div>
     <% end %>
   </tbody>
 </table>
-<br>
+<br><br><br><br>

@@ -4,19 +4,10 @@ class UsersController < ApplicationController
     end
 
     def new
-        @user = User.new
+      @user =  User.new
     end
   
-    def create
-      if @user = User.find_by(email: params[:email])
-        redirect_to new_user_path, notice: "Email in use."
-      else @user =  User.create(username: params[:email], email: params[:email], password_digest: params[:password_digest])
-        session[:user_id] = @user.id
-        redirect_to edit_user_path(@user), notice: 'Because this a new account, we will need a bit more info before you can start participating in raffles.'
-      end
-    end
-  
-    def show
+    def history
       @user = User.find_by(id: params[:id])
     end
 
@@ -37,6 +28,6 @@ class UsersController < ApplicationController
      private
   
      def user_params
-      params.require(:user).permit(:username, :password_digest, :password_digest_confirm, :tickets, :shipping_address, :city, :state, :zip, :shipping_name, :email, :id)
+      params.require(:user).permit(:username, :password, :password_confirmation, :tickets, :shipping_address, :city, :state, :zip, :shipping_name, :email, :id, :current_password)
     end
   end
