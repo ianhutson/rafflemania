@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_10_03_215443) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "raffles", force: :cascade do |t|
     t.string "product_name"
     t.string "product_description"
