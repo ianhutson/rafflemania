@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  root '/raffles'
+  root 'welcome#home'
   get '/sign_up', to: 'users#new'
   get '/sign_in', to: 'sessions#new'
   post '/sign_in', to: 'sessions#create'
