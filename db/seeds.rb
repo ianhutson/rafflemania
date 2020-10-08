@@ -1,3 +1,9 @@
+    Raffle.create(product_name: 'Coleman 8-Person Tent for Camping | Montana Tent with Easy Setup', 
+        product_description: 'Our new home.', 
+        product_image: 'https://images-na.ssl-images-amazon.com/images/I/71kuwELWwdL._AC_SL1500_.jpg', 
+        category: "Sport & Outdoor", 
+        number_of_ticket_slots: '180')
+
     Raffle.create(product_name: 'AmazonBasics 500-Watt Ceramic Small Space Personal Mini Heater - Pink', 
         product_description: 'For people who are ALWAYS cold.', 
         product_image: 'https://images-na.ssl-images-amazon.com/images/I/81TbjecgWSL._AC_SL1500_.jpg', 
