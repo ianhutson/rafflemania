@@ -13,7 +13,7 @@
     Raffle.create(product_name: 'Laptop Tote Bag,Fits 15.6-17 Inch Laptop,Womens Lightweight Water Resistant Nylon Tote Bag Shoulder Bag Messenger Bag', 
         product_description: 'A thoughtful gift.', 
         product_image: 'https://images-na.ssl-images-amazon.com/images/I/81wzzt8fvcL._AC_UY500_.jpg', 
-        category: "Sports & Outdoor", 
+        category: "Fashion", 
         number_of_ticket_slots: '35')
 
     Raffle.create(product_name: 'King of the Hill - Seasons 1 - 6 DVD', 
@@ -37,7 +37,7 @@
     Raffle.create(product_name: 'New Balance Costa Rica Home Soccer Men\'s Jersey FIFA World Cup Russia 2018 Large Red', 
         product_description: 'Pura vida.', 
         product_image: 'https://images-na.ssl-images-amazon.com/images/I/51sgygm-l2L._AC_UX679_.jpg', 
-        category: "Sports", 
+        category: "Sport & Outdoor", 
         number_of_ticket_slots: '55')
 
     Raffle.create(product_name: 'OMyTea Travel Japanese Tea Set - Chinese Asian Kung Fu Gongfu Porcelain Tea Set - Including Tea Pot, Tea Cups, Bamboo Tea Tray, Tea Towel, Organizer Storage Case (Green Penguin)', 

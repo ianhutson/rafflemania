@@ -2,7 +2,7 @@ class RafflesController < ApplicationController
 
 
     def index
-      @raffles = Raffle.filter(params[:filter]).search(params[:search]) 
+      @raffles = Raffle.filter(params[:filter])
     end
 
     def new

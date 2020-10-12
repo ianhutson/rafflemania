@@ -11,13 +11,14 @@ class Raffle < ApplicationRecord
         end
     end
 
-    def self.search(key)
-        if key.nil?
-            raffle = Raffle.all
-        else
-            keys = key.split('+')
-            Raffle.where((['product_name LIKE ?'] * keys.size).join(' OR '), *keys.map{ |key| "%#{key}%" })
-        end
-    end
+    # def self.search(search)
+    #     if search
+    #         raffle = Raffle.all
+    #     else
+    #         keys = key.split('+')
+    #         Raffle.where((['product_name LIKE ?'] * keys.size).join(' OR '), *keys.map{ |key| "%#{key}%" })
+    
+    #     end
+    # end
 
 end

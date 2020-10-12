@@ -40,7 +40,7 @@
           Tickets: <%= image_tag "gold.jpg", class: "small_ticket" %>Gold (3 Entries) - <%=current_user.tickets.where(:tier => 'gold', :used => false).count %> | <%= image_tag "silver.jpg", class: "small_ticket" %> Silver (2 Entries) - <%=current_user.tickets.where(:tier => 'silver', :used => false).count %> | <%= image_tag "bronze.jpg", class: "small_ticket" %> Bronze (1 Entry) - <%=current_user.tickets.where(:tier => 'bronze', :used => false).count %>
         </div>
       </ul>
-      <img class="container3" src='/assets/images/logo.jpg'>
+      <img class="container3" src='assets/logo.jpg'>
     </div> </div >
    
     <%end%>
