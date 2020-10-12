@@ -25,4 +25,6 @@ has_many :raffles, through: :tickets
     user.username = auth.info.email
     end
   end
+
+  
 end

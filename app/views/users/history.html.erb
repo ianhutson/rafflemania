@@ -1,5 +1,3 @@
-
-
 <div class="title">Raffle History:</div><br>
 <% current_user.raffles.uniq.each do |raffle| %>
  <% if raffle.winner == current_user.username%>
@@ -9,7 +7,7 @@
             <% end %>
         <p><%= raffle.product_name %></p>
         <br>
-        <p><img src="<%= raffle.product_image%>"></p>
+        <p><img class="img" src="<%= raffle.product_image%>"></p>
         <br>
     <% end %> 
 

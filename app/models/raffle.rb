@@ -1,7 +1,7 @@
 class Raffle < ApplicationRecord
     has_many :tickets
     has_many :users, through: :tickets
-    attr_accessor :gold, :silver, :bronze
+    attr_accessor :gold, :silver, :bronze, :ticket_count
     
     def self.filter(filter)
         if filter
@@ -10,6 +10,16 @@ class Raffle < ApplicationRecord
             Raffle.all
         end
     end
+    
+
+    def ticket_count
+        count = []
+        Ticket.where(:raffle_id => self.id).each do |ticket|
+            count << ticket.cost.to_i
+        end
+        return count.sum
+    end
+
 
     # def self.search(search)
     #     if search

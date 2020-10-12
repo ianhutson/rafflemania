@@ -20,11 +20,23 @@ class TicketsController < ApplicationController
    end
 
    def create
-      params[:ticket][:gold].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'gold', :used => false)}
-      params[:ticket][:silver].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'silver', :used => false)}
-      params[:ticket][:bronze].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'bronze', :used => false)}
+      puts "hi"
+      puts ticket_create("gold")
+      ticket_count("gold").times ticket_create("gold")
+      ticket_count("silver").times ticket_create("silver")
+      ticket_count("bronze").times ticket_create("bronze")
 
       redirect_to root_url
-      puts params
    end
+   
+   def ticket_count(tier)
+      params[:ticket][tier].to_i
+   end
+
+   def ticket_create(tier)
+      @tier = tier
+      Ticket.create(:user_id => current_user.id, :tier => @tier, :used => false)
+   end
+
+   
 end
