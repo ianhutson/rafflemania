@@ -22,7 +22,7 @@
           <%= link_to "Profile", edit_registration_path(current_user) %>
         </div >
         <div class="nav-item ">
-          <%= link_to "History", user_history_url(current_user) %>
+          <%= link_to "History", raffle_user_path(current_user, current_user.raffles) %>
         </div >
          <div class="nav-item ">
           <%= link_to "Get Tickets", new_ticket_path %>
@@ -51,9 +51,9 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<div class="container2">
+
     <%= yield %>
-</div>
+
 
   <div class="footer"><br><div class="container">
    <a href="https://github.com/ianhutson"> Contact Us</a></div><br>

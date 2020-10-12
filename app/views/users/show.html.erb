@@ -1,0 +1,36 @@
+<div class="container">
+<div class="title">Current Bids:</div><br>
+<% current_user.raffles.uniq.each do |raffle| %>
+ <% if raffle.winner == nil%>
+        <p><%= raffle.product_name %></p>
+        <br>
+        <p><img class="img" src="<%= raffle.product_image%>"></p>
+        <br>
+        <div>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'gold', raffle_id: raffle.id).count%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'silver', raffle_id: raffle.id).count%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_user.tickets.where(tier: 'bronze', raffle_id: raffle.id).count%></div>
+    <% end %>  <% end %> 
+</div>
+</div>
+
+<div class="container">
+<div class="title">Raffle History:</div><br>
+<% current_user.raffles.uniq.each do |raffle| %>
+ 
+        <p><%= raffle.product_name %></p>
+        <% if raffle.winner == current_user.username%>
+        <p style="color:green"><strong>WON</strong></p>
+        <% else %>
+        <p style="color:red"><strong>LOST</strong></p>
+            <% end %>
+        <br>
+        <p><img class="img" src="<%= raffle.product_image%>"></p>
+        <br>
+        <div>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'gold', raffle_id: raffle.id).count%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'silver', raffle_id: raffle.id).count%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_user.tickets.where(tier: 'bronze', raffle_id: raffle.id).count%></div><br>
+<% end %> 
+</div>
+
