@@ -22,7 +22,7 @@
           <%= link_to "Profile", edit_registration_path(current_user) %>
         </div >
         <div class="nav-item ">
-          <%= link_to "History", raffle_user_path(current_user, current_user.raffles) %>
+          <%= link_to "History", raffle_users_path(current_user) %>
         </div >
          <div class="nav-item ">
           <%= link_to "Get Tickets", new_ticket_path %>

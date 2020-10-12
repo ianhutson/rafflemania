@@ -2,15 +2,13 @@
 <%#= text_field :search, params[:search]%>
 <%#= submit_tag ("Search"), class: 'button' %>
 <%# end %>
-
+<br><br><br>
+<div class="title">Current Raffles:</div>
+<div class="container">
 <%= form_tag(raffles_path, method: 'get') do %>
   <%= select_tag(:filter, options_for_select(Raffle.pluck(:category).uniq, params[:filter]), include_blank:"(all categories)") %>
   <%= submit_tag ("Filter"), class: 'button' %> <button class="button" href="/raffles">Clear</button>
-<% end %></div>
-
-<div class="title">Current Raffles:</div>
-
-
+<% end %></div></div>
     <% @raffles.each do |raffle| %>
     <div class="container">
         <p><strong>Product</strong></p>

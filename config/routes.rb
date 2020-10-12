@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :raffles, :path_names => {:edit => 'enter' }
   resources :tickets, :path_names => {:edit => 'claim' }
   resources :raffles do
-    resources :users, only: [:show]
+    resources :users, only: [:index]
   end
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   root 'welcome#home'
