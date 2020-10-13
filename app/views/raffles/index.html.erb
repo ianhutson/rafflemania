@@ -23,7 +23,7 @@
         <p><%= raffle.product_description %></p>
         <br>
         <p><strong>Spots Left</strong></p>
-        <p><%= raffle.ticket_count %> / <%= raffle.number_of_ticket_slots %>
+        <p><%= current_bids(raffle) %> / <%= raffle.number_of_ticket_slots %>
         <br>
         <%= link_to "Enter", edit_raffle_path(raffle), class: "nav-item2" %></p>
         </div>
