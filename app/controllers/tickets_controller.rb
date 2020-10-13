@@ -8,23 +8,16 @@ class TicketsController < ApplicationController
         @user = current_user
         @tickets = @user.tickets
    end
-  
-   def index
-      @user = current_user
-      @tickets = @user.tickets
-   end
 
    def edit
       @ticket = Ticket.new
       @tickets = current_user.tickets.all
    end
 
-   def create
-      puts "hi"
-      puts ticket_create("gold")
-      ticket_count("gold").times ticket_create("gold")
-      ticket_count("silver").times ticket_create("silver")
-      ticket_count("bronze").times ticket_create("bronze")
+   def update
+      params[:user][:gold].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'gold', :used => false)}
+      params[:user][:silver].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'silver', :used => false)}
+      params[:user][:bronze].to_i.times {Ticket.create(:user_id => current_user.id, :tier => 'bronze', :used => false)}
 
       redirect_to root_url
    end

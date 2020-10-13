@@ -1,9 +1,11 @@
+
+<br><div class="container">
 <div class="title">Get Tickets:</div><br>
 
-<%= form_for(@ticket) do |f| %>
+<%= form_for(@user, url: new_ticket_path) do |f| %>
   <%=f.label :tier, "Gold" %>: <br>
   <%= image_tag "gold.jpg", class: "medium_ticket" %><br>
-  <%=f.number_field :gold%><br>
+  <%=f.number_field :gold %><br>
   <%=f.label :tier, "Silver" %>:<br>
   <%= image_tag "silver.jpg",class: "medium_ticket" %><br>
   <%=f.number_field :silver %><br>
@@ -11,4 +13,4 @@
   <%= image_tag "bronze.jpg", class: "medium_ticket" %><br>
   <%=f.number_field :bronze %> <br><br>
   <%= f.submit "Get Tickets" %>
-<% end %>
+<% end %></div>

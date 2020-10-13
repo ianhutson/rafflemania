@@ -14,13 +14,12 @@
     border: 5px solid black;
 }
 
-a:hover,
 a:active {
     background-color: 9147ff;
 }
 
 body {
-    background-color: #ffc7c6;
+    background-color: #1000a3;
     color: black;
     overflow-x: hidden;
     font-family: 'roobertregular';
@@ -32,7 +31,7 @@ body {
     position: fixed;
     width: 100%;
     height: 50p;
-    background-color: #FFc913;
+    background-color: #dcdcdc;
     font-family: 'roobertregular';
     font-weight: bold;
     text-align: center;
@@ -53,61 +52,25 @@ body {
     border: 1px solid black;
     text-align: center;
     width: 7%;
-    float: left
-}
-
-.button1 {
-    background-color: #5DADE2;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    height: 25px;
-    cursor: pointer;
-    font-family: 'roobertregular';
-    border: 1px solid black;
-    text-align: center;
-    width: 25%;
     float: left;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    margin-left: 1%;
-    font-weight: normal;
 }
 
-.button1:hover {
-    background-color: #000000;
-    color: 242427;
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+.nav-item:link {
+    color: white;
 }
 
 .nav-item:hover {
-    background-color: #000000;
+    background-color: white;
     color: 242427;
-}
-
-.divider {
-    border-right: 10px solid #FFc913;
-    height: 1px;
-    float: left
-}
-
-.h3 {
-    font-size: 16;
-    font-weight: normal;
-}
-
-body h5 {
-    font-size: 20px;
-    font-weight: normal;
-}
-
-body h2 {
-    font-size: 22px;
-    font-weight: normal;
-}
-
-body h1 {
-    font-size: 16px;
-    font-weight: normal;
 }
 
 body p {
@@ -122,7 +85,7 @@ body p {
 }
 
 div.container {
-    background-color: #FFc913;
+    background-color: #dcdcdc;
     width: 400px;
     max-width: 90%;
     border: 5px solid black;
@@ -169,6 +132,7 @@ div.container2 {
     padding-top: 1%;
     padding-bottom: 0;
     margin: auto;
+    color: white
 }
 
 img {
@@ -219,8 +183,30 @@ b {
     width: 400px;
     max-width: 10%;
     display: block;
-    margin-left: 44.9%;
+    margin-left: 45.1%;
     margin-top: -.5%;
     text-align: center;
     mix-blend-mode: multiply;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {}
+
+@media only screen and (min-width: 321px) {}
+
+@media only screen and (max-width: 320px) {}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {}
+
+@media only screen and (min-width: 1224px) {}
+
+@media only screen and (min-width: 1824px) {}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {}

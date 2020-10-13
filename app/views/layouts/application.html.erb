@@ -25,7 +25,7 @@
           <%= link_to "History", raffle_users_path(current_user) %>
         </div >
          <div class="nav-item ">
-          <%= link_to "Get Tickets", new_ticket_path %>
+          <%= link_to "Get Tickets", new_user_ticket_path(current_user) %>
         </div >
         <div class="nav-item ">
           <%= link_to "Sign Out",  destroy_user_session_path, method: :delete %>
@@ -40,7 +40,7 @@
           Tickets: <%= image_tag "gold.jpg", class: "small_ticket" %>Gold (3 Entries) - <%=current_user.tickets.where(:tier => 'gold', :used => false).count %> | <%= image_tag "silver.jpg", class: "small_ticket" %> Silver (2 Entries) - <%=current_user.tickets.where(:tier => 'silver', :used => false).count %> | <%= image_tag "bronze.jpg", class: "small_ticket" %> Bronze (1 Entry) - <%=current_user.tickets.where(:tier => 'bronze', :used => false).count %>
         </div>
       </ul>
-      <img class="container3" src='assets/logo.jpg'>
+      <%= image_tag "logo.jpg", class: "container3"%>
     </div> </div >
    
     <%end%>
@@ -49,7 +49,7 @@
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <div class="alert alert-danger"><%= alert %></div>
 <% end %>
 
     <%= yield %>
