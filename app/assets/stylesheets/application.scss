@@ -55,21 +55,47 @@ body {
     float: left;
 }
 
+.nav-item2 {
+    margin-top: .5%;
+    margin-left: .5%;
+    background-color: #5DADE2;
+    color: white;
+    text-decoration: bold;
+    font-size: 16px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    font-family: 'roobertregular';
+    border: 1px solid black;
+    text-align: center;
+    width: 40%;
+}
+
 a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 a:visited {
-    color: black;
+    color: white;
 }
 
 .nav-item:link {
     color: white;
 }
 
+.nav-item2:hover {
+    background-color: black;
+    color: 242427;
+}
+
+.nav-item2:link {
+    color: white;
+}
+
 .nav-item:hover {
-    background-color: white;
+    background-color: black;
     color: 242427;
 }
 
@@ -122,7 +148,9 @@ div.container2 {
     padding-top: 0;
     padding-bottom: 0;
     font-weight: normal;
-    margin-right: 1%
+    margin-right: 1%;
+    max-width: 30%;
+    font-size: 14px
 }
 
 .title {

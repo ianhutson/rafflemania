@@ -20,6 +20,21 @@ class Raffle < ApplicationRecord
         return count.sum
     end
 
+    # Set raffle filter
+
+    def set_gold
+        [:raffle][:gold].to_i
+      end
+  
+      def set_silver
+        [:raffle][:silver].to_i
+      end
+  
+      def set bronze
+        [:raffle][:bronze].to_i
+      end
+  
+
 
     # def self.search(search)
     #     if search
@@ -32,3 +47,4 @@ class Raffle < ApplicationRecord
     # end
 
 end
+

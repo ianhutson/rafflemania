@@ -1,4 +1,4 @@
-
+<div class="container">
 <p><strong>Product</strong></p>
 <p><%= @raffle.product_name %></p>
 <br>
@@ -32,3 +32,4 @@
 Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'gold', raffle_id: @raffle.id).count%>
 Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_user.tickets.where(tier: 'silver', raffle_id: @raffle.id).count%>
 Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_user.tickets.where(tier: 'bronze', raffle_id: @raffle.id).count%>
+</div>

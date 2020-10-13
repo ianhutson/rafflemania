@@ -24,7 +24,8 @@
         <br>
         <p><strong>Spots Left</strong></p>
         <p><%= raffle.ticket_count %> / <%= raffle.number_of_ticket_slots %>
-        <%= link_to "Enter Raffle", edit_raffle_path(raffle) %></p>
+        <br>
+        <%= link_to "Enter", edit_raffle_path(raffle), class: "nav-item2" %></p>
         </div>
     <% end %>
 
