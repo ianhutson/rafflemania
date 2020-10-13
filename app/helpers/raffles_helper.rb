@@ -41,5 +41,22 @@ module RafflesHelper
         @@raff_arr.fill(current_user.username, @@raff_arr.size, bid_silver*2)
         @@raff_arr.fill(current_user.username, @@raff_arr.size, bid_bronze )
     end
-    
+
+    def enough_slots?(raffle)
+        bid_total + current_bids(raffle) > raffle.number_of_ticket_slots 
+    end
+
+    def enough_tickets?(user)
+        bid_gold > user_gold(user) || bid_silver > user_silver(user) || bid_bronze > user_bronze(user)
+    end
+
+    def slots_filled?(raffle)
+        raffle.number_of_ticket_slots == current_bids(raffle) 
+    end
+    def select_winner(raffle)
+        @winner = @@raff_arr.sample
+        raffle.update(winner: @winner)
+       #code to ship item to winner using amazon api
+       Raffle.create(product_name: raffle.product_name, product_description: raffle.product_description, product_image: raffle.product_image, category: raffle.category, number_of_ticket_slots: raffle.number_of_ticket_slots)
+    end
 end

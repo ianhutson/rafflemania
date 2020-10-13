@@ -1,6 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
-
     def update_resource(resource, params)
       if current_user.provider == "amazon"
         params.delete("current_password")
