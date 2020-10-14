@@ -5,20 +5,20 @@ Rafflemania rails app that hosts product raffles with amazon oauth integration. 
 Clone this repository and execute:
 
 ```$bundle install```
-<br>
+<br><br>
 Then execute:
 
-```$rails db:migrate```<br>
+```$rails db:migrate```<br><br>
 to create the database.
 
 Next, execute:
 
-```$rails db:seed```<br>
+```$rails db:seed```<br><br>
 to add sample travelers, goals, and destination information to the database.
 
 Execute:
 
-```$rails s```<br>
+```$rails s```<br><br>
 and navigate to use a local server and navigate to localhost:3000 to preview the app.
 
 
