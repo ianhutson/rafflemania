@@ -7,9 +7,9 @@
         <p><img class="img" src="<%= raffle.product_image%>"></p>
         <br>
         <div>
-        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, gold, @raffle)%>
-        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, silver, @raffle)%>
-        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, bronze, @raffle)%></div><br>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, :gold, raffle)%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, :silver, raffle)%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, :bronze, raffle)%></div><br>
     <% end %>  <% end %> 
 </div>
 </div>
@@ -17,7 +17,8 @@
 <div class="container">
 <div class="title">Raffle History:</div><br>
 <% current_user.raffles.uniq.each do |raffle| %>
- 
+<%if raffle.winner == nil%>
+<%else%>
         <p><%= raffle.product_name %></p>
         <% if raffle.winner == current_user.username%>
         <p style="color:green"><strong>WON</strong></p>
@@ -28,9 +29,10 @@
         <p><img class="img" src="<%= raffle.product_image%>"></p>
         <br>
         <div>
-        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, gold, @raffle)%>
-        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, silver, @raffle)%>
-        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, bronze, @raffle)%></div><br>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, :gold, raffle)%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, :silver, raffle)%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, :bronze, raffle)%></div><br>
+        <% end %>
 <% end %> 
 </div>
 

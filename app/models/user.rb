@@ -6,9 +6,7 @@ class User < ApplicationRecord
   has_many :raffles, through: :tickets
   attr_accessor :gold, :silver, :bronze
   
-  def password_required?
-    super && provider.blank?
-  end
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
