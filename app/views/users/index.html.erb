@@ -7,9 +7,9 @@
         <p><img class="img" src="<%= raffle.product_image%>"></p>
         <br>
         <div>
-        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=user_gold(current_user)%>
-        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=user_silver(current_user)%>
-        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=user_bronze(current_user)%></div><br>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, gold, @raffle)%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, silver, @raffle)%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, bronze, @raffle)%></div><br>
     <% end %>  <% end %> 
 </div>
 </div>
@@ -28,9 +28,9 @@
         <p><img class="img" src="<%= raffle.product_image%>"></p>
         <br>
         <div>
-        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=user_gold(current_user)%>
-        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=user_silver(current_user)%>
-        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=user_bronze(current_user)%></div><br>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_tickets(current_user, gold, @raffle)%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_tickets(current_user, silver, @raffle)%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_tickets(current_user, bronze, @raffle)%></div><br>
 <% end %> 
 </div>
 

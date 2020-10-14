@@ -7,10 +7,10 @@
 
 default: &default
   adapter: postgresql
-  username: db
-  password: jjko6sos7qfxornp
-  host: app-f7286cbe-6988-432a-85c4-c4ee8cc5ee13-do-user-8136592-0.b.db.ondigitalocean.com
+  host: app-99b900f5-3536-4612-acb6-cb283c337406-do-user-8165412-0.b.db.ondigitalocean.com
   port: 25060
+  username: db
+  password: pz23ofnhvaoaigj2
   database: db
   sslmode: require
 

@@ -4,6 +4,10 @@ module RafflesHelper
         (Ticket.where(:raffle_id => raffle.id, :tier => "gold").count*3) + (Ticket.where(:raffle_id => raffle.id, :tier => "silver").count*2) + (Ticket.where(:raffle_id => raffle.id, :tier => "bronze").count)
     end
 
+    def current_tickets(user, tier, raffle)
+        user.tickets.where(tier: tier, raffle_id: raffle.id).count
+    end
+
     def bid_total
         (bid_gold * 3) + (bid_silver * 2) + bid_bronze
     end
@@ -53,10 +57,13 @@ module RafflesHelper
     def slots_filled?(raffle)
         raffle.number_of_ticket_slots == current_bids(raffle) 
     end
+
     def select_winner(raffle)
         @winner = @@raff_arr.sample
         raffle.update(winner: @winner)
        #code to ship item to winner using amazon api
        Raffle.create(product_name: raffle.product_name, product_description: raffle.product_description, product_image: raffle.product_image, category: raffle.category, number_of_ticket_slots: raffle.number_of_ticket_slots)
     end
+
+
 end
