@@ -1,5 +1,5 @@
-# rafflemania
-Rafflemania rails app that hosts product raffles with amazon oauth integration. Rafflemania is Rails project to fulfill project requirements at Flatiron School. Further development to be continued`.
+# RaffleMania
+RaffleMania rails app that hosts product raffles with amazon oauth integration. RaffleMania is Rails project to fulfill project requirements at Flatiron School. Further development to be continued.
 
 # Installation
 Clone this repository and execute:
@@ -14,7 +14,7 @@ to create the database.
 Next, execute:
 
 ```$rails db:seed```<br><br>
-to add sample travelers, goals, and destination information to the database.
+to add sample raffles to the database.
 
 Execute:
 
