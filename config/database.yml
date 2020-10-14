@@ -8,7 +8,7 @@
 default: &default
   adapter: postgresql
   username: db
-  password: jjko6sos7qfxornp hide
+  password: jjko6sos7qfxornp
   host: app-f7286cbe-6988-432a-85c4-c4ee8cc5ee13-do-user-8136592-0.b.db.ondigitalocean.com
   port: 25060
   database: db
