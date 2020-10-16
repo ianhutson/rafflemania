@@ -11,7 +11,7 @@
 <p><%= @raffle.product_description %></p>
 <br>
 <p><strong>Spots Left</strong></p>
-<p><%= (@raffle.tickets.where(:tier => :gold).count.to_i*3) + (@raffle.tickets.where(:tier => :silver).count.to_i*2) + (@raffle.tickets.where(:tier => :bronze).count.to_i)%> / <%= @raffle.number_of_ticket_slots %>
+<p><%= @raffle.current_bids%> / <%= @raffle.number_of_ticket_slots %>
 
 <p>Use Tickets:</p><br>
 <%= form_for(@raffle) do |f| %>
@@ -30,6 +30,6 @@
 <p>Your Entries:</p>
 
  <div>
-        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=user_gold(current_user)%>
-        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=user_silver(current_user)%>
-        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=user_bronze(current_user)%></div></div>
+        Gold:<%= image_tag "gold.jpg", class: "small_ticket" %> <%=current_user.user_gold%>
+        Silver:<%= image_tag "silver.jpg", class: "small_ticket" %> <%=current_user.user_silver%>
+        Bronze: <%= image_tag "bronze.jpg", class: "small_ticket" %><%=current_user.user_bronze%></div></div>

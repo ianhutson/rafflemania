@@ -37,7 +37,7 @@
           <%= current_user.username%> 
         </div><br>
         <div class="user">
-          Tickets: <%= image_tag "gold.jpg", class: "small_ticket" %>Gold (3 Entries) - <%=user_gold(current_user)%> | <%= image_tag "silver.jpg", class: "small_ticket" %> Silver (2 Entries) - <%=user_silver(current_user)%> | <%= image_tag "bronze.jpg", class: "small_ticket" %> Bronze (1 Entry) - <%=user_bronze(current_user)%>
+          Tickets: <%= image_tag "gold.jpg", class: "small_ticket" %>Gold (3 Entries) - <%=current_user.user_gold%> | <%= image_tag "silver.jpg", class: "small_ticket" %> Silver (2 Entries) - <%=current_user.user_silver%> | <%= image_tag "bronze.jpg", class: "small_ticket" %> Bronze (1 Entry) - <%=current_user.user_bronze%>
         </div>
       </ul>
       <%= image_tag "logo.jpg", class: "container3"%>
@@ -46,10 +46,10 @@
     <%end%>
     
     <% if notice %>
-  <p class="alert alert-success" style="color:white"><%= notice %></p>
+  <div class="alert" style="color:white"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <div class="alert alert-danger" style="color:white"><%= alert %></div>
+  <div class="alert" style="color:white"><%= alert %></div>
 <% end %>
 
     <%= yield %>

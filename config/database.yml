@@ -7,24 +7,24 @@
 
 default: &default
   adapter: postgresql
-  host: app-99b900f5-3536-4612-acb6-cb283c337406-do-user-8165412-0.b.db.ondigitalocean.com
+  username: doadmin
+  password: n1sd0qqa0j5uw0ty
+  host: db-postgresql-nyc1-27683-do-user-8165412-0.b.db.ondigitalocean.com
   port: 25060
-  username: db
-  password: pz23ofnhvaoaigj2
-  database: db
+  database: defaultdb
   sslmode: require
 
 development:
   <<: *default
-  database: db
+  database: defaultdb
  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db
+  database: defaultdb
 
 production:
   <<: *default
-  database: db
+  database: defaultdb

@@ -1,6 +1,6 @@
 class RafflesController < ApplicationController
   before_action :set_raffle, only: [:show, :edit, :update]
-  include RafflesHelper
+ 
 
     def index
       @raffles = Raffle.where(winner: nil)
@@ -27,15 +27,21 @@ class RafflesController < ApplicationController
     end
     
     def update
-      if helpers.enough_slots?(@raffle)
-        if helpers.enough_tickets?(current_user)
-          redirect_to edit_raffle_path, notice: "You do not have enough tickets."
-        else
+      bid_gold = params[:raffle][:gold].to_i
+      bid_silver = params[:raffle][:silver].to_i
+      bid_bronze = params[:raffle][:bronze].to_i
+      bid_total = (bid_gold*3)+(bid_silver*2)+(bid_bronze)
+      puts bid_silver
+      puts current_user.user_silver
+      if bid_gold > current_user.user_gold || bid_silver > current_user.user_silver || bid_bronze > current_user.user_bronze
+        redirect_to edit_raffle_path, notice: "You do not have enough tickets."
+      else 
+        if bid_total + @raffle.current_bids > @raffle.number_of_ticket_slots    
         redirect_to edit_raffle_path, notice: "There aren't enough spots left in this raffle to handle your entry! Please use less tickets."
-        end
-      else update_tickets(@raffle)
-        if slots_filled?(@raffle)
-          select_winner(@raffle)
+        else @raffle.update_tickets(current_user, bid_gold, bid_silver, bid_bronze)
+          if @raffle.slots_filled?
+          @raffle.select_winner
+          end
         end
        redirect_to edit_raffle_path(@raffle)
       end
@@ -47,15 +53,16 @@ class RafflesController < ApplicationController
 
     private 
 
-    def set_raffle
-      @raffle = Raffle.find(params[:id])
-    end
-
     def raffle_params
       params.require(:raffle).permit(:product_name, :product_description, :product_image, :number_of_ticket_slots, :filter)
+    end
+    
+    def set_raffle
+      @raffle = Raffle.find(params[:id])
     end
 
     def filtering_params(params)
       params.slice(:category)
     end   
+  
 end
