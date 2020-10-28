@@ -31,8 +31,6 @@ class RafflesController < ApplicationController
       bid_silver = params[:raffle][:silver].to_i
       bid_bronze = params[:raffle][:bronze].to_i
       bid_total = (bid_gold*3)+(bid_silver*2)+(bid_bronze)
-      puts bid_silver
-      puts current_user.user_silver
       if bid_gold > current_user.user_gold || bid_silver > current_user.user_silver || bid_bronze > current_user.user_bronze
         redirect_to edit_raffle_path, notice: "You do not have enough tickets."
       else 
