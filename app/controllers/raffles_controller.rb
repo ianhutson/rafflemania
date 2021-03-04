@@ -1,9 +1,8 @@
 class RafflesController < ApplicationController
   before_action :set_raffle, only: [:show, :edit, :update]
  
-
     def index
-      @raffles = Raffle.where(winner: nil)
+      @raffles = Raffle.filter(params[:filter]).where(winner: nil)
     end
 
     def new
